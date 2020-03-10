@@ -1,0 +1,25 @@
+#section-one-text {
+  color: #ffff00;
+  background: #333;
+  white-space: nowrap;
+}
+
+img {
+  margin: 10px;
+}
+
+select.form-control {
+  background: chocolate;
+  color: black;
+}
+
+#section-two-menu {
+  width: auto;
+}
+
+#section-two-list > li,
+#section-two-output > li {
+  color: black;
+  background: white;
+  cursor: pointer;
+}
