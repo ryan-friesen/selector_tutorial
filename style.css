@@ -1,0 +1,35 @@
+#section-one-text {
+  color: #ffff00;
+  background: #333;
+  white-space: nowrap;
+}
+
+img {
+  margin: 10px;
+}
+
+select.form-control {
+  background: chocolate;
+  color: black;
+}
+
+#section-two-menu {
+  width: auto;
+}
+
+#section-two-list,
+#section-two-output {
+  color: black;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#list-container-1,
+#list-container-2 {
+  height: 240px;
+  border-style: solid;
+}
+
+#section-two-list > li {
+  padding: none;
+}

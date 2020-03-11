@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>DOM Selectors</title>
+<link href="style.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body id="body" onload="onloadFunctions();">
+<h1>Section I:</h1>
+<p>Javascript provides numerous methods of selecting elements on a page based on attributes. For instance, select from the menu below to show the attributes of 
+<span id="section-one-text" style="font-size: 20px;">this bit of text</span>.</p>
+<div class="container row col-12">
+<div class="container col-6">
+<p>Here's an image of the above text as it appears in the html file:</p>
+<img src="images/section-one-inline-css.JPG" />
+<p>Notice that in the above text, the CSS font-size has been declared inline.</p>
+<ul>
+<li>Select "ID" from the menu. You'll see "section-one-text" in the window</li>
+<li>The "Node Name" option gets the nodeName attribute of the element- the &lt;span&gt; tag</li>
+<li>The "Font size" option allows us to see the "20px" font size inline declaration</li>
+</ul>
+</div>
+<div class="container col-6">
+<div class="col-12">
+    <select class="form-control" name="section-one-menu" id="section-one-menu">
+        <option value="id">ID</option>
+        <option value="nodename">Node Name</option>
+        <option value="fontsize">Font Size</option>
+        <option value="inline-color">Color</option>
+        <option value="color">Color (2nd method)</option>
+        </select>
+		<button id="section-one-button" onclick="outputAttribute();">Select</button>
+        </div>
+    <img src="images/section-one-switch-statement.JPG" />
+<p>Now: select "color" from the pull down menu. Notice that, despite the color of the text being yellow, nothing shows up in the alert window- <i>even though we're listing the color property the same way we're listing the font-size property.</i></p>
+<p>Obviously, some CSS was involved in changing the color of the text- and yet, nothing shows up.</p>
+<p>What gives?</p>
+</div>
+</div>
+<div class="container row col-12">
+<div class="container col-6">
+</div>
+<div class="container col-6">
+<p>The above command only retrieves what it sees in the HTML file. The other CSS styles were declared externally in the style.css file, which requires a bit of a workaround to access: here's the rest of the switch statement, as well as the hoisted function that displays the value:</p>
+<img src="images/section-one-get-computed-value.JPG" />
+</div>
+</div>
+<h1>Section II</h1>
+<p>Now, we'll use some event listeners with the below image, and display the properties from the pulldown menu located underneath:</p>
+<div id="section-two-container" class="container row col-12">
+    <div class="col-3" id="list-container-1">
+<ul id="section-two-list" onclick="reorderList(event);">
+<li>First element</li>
+<li>Second element</li>
+<li>Third element</li>
+<li>Fourth element</li>
+<li>Fifth element</li>
+<li>Sixth element</li>
+<li>Seventh element</li>
+<li>Eigth element</li>
+<li>Ninth element</li>
+<li>Tenth element</li>
+</ul>
+</div>
+<div class="col-3" id="list-container-2">
+    <ul id="section-two-output" onclick="undoReorderList(event);">
+    </ul>
+</div>
+</div>
+</div>
+<div class="col-6">
+<select class="form-control" name="section-two-menu" id="section-two-menu">
+        <option value="list-all">Flip-flop list</option>
+        <option value="negative">Flip-flop colors</option>
+        <option value="reset">Reset List</option>
+        </select>
+        <button id="section-two-submit" onclick="sectionTwoMenu();">Enter</button>
+    
+</div>
+</div>
+<script src="main.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
