@@ -121,11 +121,10 @@ function assignValues() {
 }
 
 function getLiObjects() {
-
   // collect all li elements in the document
 
   let a = document.querySelectorAll("#section-two-container li");
-  
+
   let array = [];
 
   // use a for loop to successively cycle through the collected elements according to the value initially
@@ -136,8 +135,7 @@ function getLiObjects() {
         '#section-two-container li[value="' + i + '"]'
       );
       array.push(c[0]);
-    } catch {
-    }
+    } catch {}
   }
   return array;
 }

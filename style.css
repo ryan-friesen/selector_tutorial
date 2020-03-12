@@ -27,9 +27,15 @@ select.form-control {
 #list-container-1,
 #list-container-2 {
   height: 240px;
-  border-style: solid;
+  background: #88a;
+  margin: 10px;
 }
 
 #section-two-list > li {
   padding: none;
+}
+
+#section-two-list > li:hover,
+#section-two-output > li:hover {
+  background-color: grey;
 }
