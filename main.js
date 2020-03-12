@@ -81,12 +81,14 @@ function reverseColors(a) {
 function reverseList(a) {
   let array = [];
   for (i = a.length - 1; i >= 0; i--) {
-    array.push(a[i].innerHTML);
+    array.push([a[i].innerHTML, a[i].value]);
     a[i].innerHTML = "";
   }
   for (i = 0; i < a.length; i++) {
-    a[i].innerHTML = array[i];
+    a[i].innerHTML = array[i][0];
+    a[i].value = array[i][1];
   }
+  console.log(array[1][0]);
 }
 
 function reorderList(event) {
@@ -119,30 +121,36 @@ function assignValues() {
 }
 
 function getLiObjects() {
+
+  // collect all li elements in the document
+
   let a = document.querySelectorAll("#section-two-container li");
+  
   let array = [];
+
+  // use a for loop to successively cycle through the collected elements according to the value initially
+
   for (i = 1; i <= a.length; i++) {
     try {
       let c = document.querySelectorAll(
         '#section-two-container li[value="' + i + '"]'
       );
       array.push(c[0]);
-    } catch {}
+    } catch {
+    }
   }
   return array;
 }
 
 function resetList() {
   let array = getLiObjects();
-  console.log(array);
   let a = document.getElementById("section-two-list"),
-    b = document.getElementById("section-two-output"),
-    c = document.getElementById("list-container-1");
-  console.log(a.innerHTML);
-  a.remove(c.childNodes);
-  c.innerHTML += '<ul id="section-two-list" onclick="reorderList(event);">';
+    b = document.getElementById("section-two-output");
+  a.innerHTML = "";
+  b.innerHTML = "";
+  a.innerHTML += '<ul id="section-two-list" onclick="reorderList(event);">';
   for (i = 0; i < array.length; i++) {
-    c.innerHTML +=
+    a.innerHTML +=
       '<li value="' + array[i].value + '">' + array[i].innerText + "</li>";
   }
 }
