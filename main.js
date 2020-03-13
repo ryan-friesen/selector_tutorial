@@ -47,7 +47,7 @@ function sectionTwoMenu() {
   let a = document.getElementById("section-two-menu"),
     b = a.value,
     c = returnListOne();
-    d = returnListTwo();
+  d = returnListTwo();
 
   switch (b) {
     case "reverse-list-1":
@@ -87,7 +87,6 @@ function reverseList(a) {
     a[i].innerHTML = array[i][0];
     a[i].value = array[i][1];
   }
-
 }
 
 function reorderList(event) {
@@ -120,7 +119,6 @@ function assignValues() {
 }
 
 function getLiObjects() {
-
   // collect all li elements in the document
 
   let a = document.querySelectorAll("#section-two-container li");
@@ -155,23 +153,23 @@ function resetList() {
 
 function dragAndDrop(event) {
   let element = event.target,
-  parentElement = event.target.parentNode;
-  console.log(element + " " + parentElement);
-const containers = document.getElementsByClassName('holder');
-for(const container of containers) {
-  container.addEventListener("dragover", dragover)
-  container.addEventListener("dragenter", dragenter)
-  container.addEventListener("drop", drop)
-}
+    containers = document.getElementsByClassName("holder");
+  for (container of containers) {
+    container.addEventListener("dragover", dragover);
+    container.addEventListener("dragenter", dragenter);
+    container.addEventListener("drop", drop);
+  }
 
-function dragover(event) {
-  event.preventDefault()
-}
-function dragenter(event) {
-  event.preventDefault()
-}
-function drop() {
-  console.log(this);
-  this.append(element)
-}
+  function dragover(event) {
+    event.preventDefault();
+  }
+
+  function dragenter(event) {
+    event.preventDefault();
+  }
+
+  function drop() {
+    this.firstElementChild.append(element);
+    console.log(this);
+  }
 }
