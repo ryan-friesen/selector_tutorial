@@ -7,6 +7,11 @@ function menuOneValue() {
   return a;
 }
 
+function menuTwoValue() {
+  let a = document.getElementById("section-two-menu");
+  return a;
+}
+
 function outputAttribute() {
   let a = menuOneValue(),
     b = document.getElementById("section-one-text");
@@ -41,11 +46,15 @@ function getStyle(b) {
 function sectionTwoMenu() {
   let a = document.getElementById("section-two-menu"),
     b = a.value,
-    c = returnList();
+    c = returnListOne();
+    d = returnListTwo();
 
   switch (b) {
-    case "list-all":
+    case "reverse-list-1":
       reverseList(c);
+      break;
+    case "reverse-list-2":
+      reverseList(d);
       break;
     case "negative":
       reverseColors(c);
@@ -58,24 +67,14 @@ function sectionTwoMenu() {
   }
 }
 
-function returnList() {
-  let a = document.querySelectorAll("#section-two-list > li");
+function returnListOne() {
+  let a = document.querySelectorAll("#section-two-list-1 > li");
   return a;
 }
 
-function reverseColors(a) {
-  for (i = 0; i < a.length; i++) {
-    let b = getComputedStyle(a[i]),
-      c = b.getPropertyValue("color"),
-      d = b.getPropertyValue("background");
-    if (c === "rgb(0, 0, 0)") {
-      a[i].style.color = "rgb(255, 255, 255)";
-      a[i].style.background = "rgb(0, 0, 0)";
-    } else {
-      a[i].style.color = "rgb(0, 0, 0)";
-      a[i].style.background = "rgb(255, 255, 255)";
-    }
-  }
+function returnListTwo() {
+  let a = document.querySelectorAll("#section-two-list-2 > li");
+  return a;
 }
 
 function reverseList(a) {
@@ -88,11 +87,11 @@ function reverseList(a) {
     a[i].innerHTML = array[i][0];
     a[i].value = array[i][1];
   }
-  console.log(array[1][0]);
+
 }
 
 function reorderList(event) {
-  let b = document.getElementById("section-two-output");
+  let b = document.getElementById("section-two-list-2");
   b.innerHTML +=
     "<li value='" +
     event.target.value +
@@ -103,7 +102,7 @@ function reorderList(event) {
 }
 
 function undoReorderList(event) {
-  let a = document.getElementById("section-two-list");
+  let a = document.getElementById("section-two-list-1");
   a.innerHTML +=
     "<li value='" +
     event.target.value +
@@ -114,13 +113,14 @@ function undoReorderList(event) {
 }
 
 function assignValues() {
-  let a = returnList();
+  let a = returnListOne();
   for (i = 0; i < a.length; i++) {
     a[i].value = i + 1;
   }
 }
 
 function getLiObjects() {
+
   // collect all li elements in the document
 
   let a = document.querySelectorAll("#section-two-container li");
@@ -142,13 +142,35 @@ function getLiObjects() {
 
 function resetList() {
   let array = getLiObjects();
-  let a = document.getElementById("section-two-list"),
-    b = document.getElementById("section-two-output");
+  let a = document.getElementById("section-two-list-1"),
+    b = document.getElementById("section-two-list-2");
   a.innerHTML = "";
   b.innerHTML = "";
-  a.innerHTML += '<ul id="section-two-list" onclick="reorderList(event);">';
+  a.innerHTML += '<ul id="section-two-list-1" onclick="reorderList(event);">';
   for (i = 0; i < array.length; i++) {
     a.innerHTML +=
       '<li value="' + array[i].value + '">' + array[i].innerText + "</li>";
   }
+}
+
+function dragAndDrop(event) {
+  let element = event.target,
+  parentElement = event.target.parentNode;
+  console.log(element + " " + parentElement);
+const containers = document.getElementsByClassName('holder');
+for(const container of containers) {
+  container.addEventListener("dragover", dragover)
+  container.addEventListener("dragenter", dragenter)
+  container.addEventListener("drop", drop)
+}
+
+function dragover(event) {
+  event.preventDefault()
+}
+function dragenter(event) {
+  event.preventDefault()
+}
+function drop() {
+  this.append(element)
+}
 }

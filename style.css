@@ -8,34 +8,59 @@ img {
   margin: 10px;
 }
 
+#body.jumbotron {
+  background: #333344;
+}
+
+h1.navbar-brand {
+  color: #333355;
+  font-size: 50px;
+}
+
 select.form-control {
   background: chocolate;
   color: black;
+  width: auto;
 }
 
 #section-two-menu {
   width: auto;
+  
 }
 
-#section-two-list,
-#section-two-output {
-  color: black;
+#section-two-list-1,
+#section-two-list-2,
+#section-three-list-1,
+#section-three-list-2 {
+  font-weight: 1000;
   cursor: pointer;
   border-radius: 5px;
+  
+  
 }
 
 #list-container-1,
-#list-container-2 {
-  height: 240px;
-  background: #88a;
+#list-container-2, 
+#hover-container-1,
+#hover-container-2 {
+  height: auto;
+  background: rgb(240, 208, 208);
   margin: 10px;
+  border: #333 solid 5px;
+  padding: 10px;
+}
+
+#hover-container-1,
+#hover-container-2 {
+  background: #335;
+  color:#dda;
 }
 
 #section-two-list > li {
   padding: none;
 }
 
-#section-two-list > li:hover,
-#section-two-output > li:hover {
-  background-color: grey;
+#section-two-list-1 > li:hover,
+#section-two-list-2 > li:hover {
+  background: rgb(108, 108, 140);
 }

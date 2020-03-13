@@ -7,6 +7,10 @@
 
 </head>
 <body id="body" onload="onloadFunctions();">
+    <div class="jumbotron">
+        <h1 class="navbar-brand">Selectors and Node Values</h1>
+    </div>
+    </div>
 <h1>Section I:</h1>
 <p>Javascript provides numerous methods of selecting elements on a page based on attributes. For instance, select from the menu below to show the attributes of 
 <span id="section-one-text" style="font-size: 20px;">this bit of text</span>.</p>
@@ -51,7 +55,7 @@
 <div class="container row col-12">
 <div id="section-two-container" class="row col-8">
     <div class="col-4" id="list-container-1">
-<ul id="section-two-list" onclick="reorderList(event);">
+<ul id="section-two-list-1" onclick="reorderList(event);">
 <li>First element</li>
 <li>Second element</li>
 <li>Third element</li>
@@ -65,7 +69,7 @@
 </ul>
 </div>
 <div class="col-4" id="list-container-2">
-    <ul id="section-two-output" onclick="undoReorderList(event);">
+    <ul id="section-two-list-2" onclick="undoReorderList(event);">
     </ul>
 </div>
 </div>
@@ -73,7 +77,7 @@
     <p>To the left, you can click on the list nodes to place them in the other container. Also, you can flip the lists, reverse the colors, and reset it to the original order and placement.</p>
     <p>The reset function here was the most complex to do- it involves several steps:</p>
     <ul>
-        <li>Collecting the list objects with the querySelectorAll() method</li>
+        <li>Collecting the list objects in both containers with the querySelectorAll() method</li>
         <li>Using a for loop to cycle through the length of the returned value from said method</li>
             <ul>
                 <li>Within the for loop, cycling through the specific values of the collected list objects</li>
@@ -86,13 +90,42 @@
 </div>
 <div class="col-6">
 <select class="form-control" name="section-two-menu" id="section-two-menu">
-        <option value="list-all">Flip-flop list</option>
-        <option value="negative">Flip-flop colors</option>
+        <option value="reverse-list-1">Flip-flop list 1</option>
+        <option value="reverse-list-2">Flip-flop list 2</option>
         <option value="reset">Reset List</option>
         </select>
         <button id="section-two-submit" onclick="sectionTwoMenu();">Enter</button>
     
 </div>
+</div>
+<h1>Section III</h1>
+<p>The above list is a good example of how you can use selectors to access node values. Now, we'll use some other properties to create a drag and drop program.</p>
+<div class="container row col-12" id="section-three-container">
+    <div id="section-three-container" class="row col-8">
+        <div class="col-4 holder" id="hover-container-1">
+    <div id="section-three-list-1" ondragstart="dragAndDrop(event)">
+    <p draggable="true">First element</p>
+    <p draggable="true">Second element</p>
+    <p draggable="true">Third element</p>
+    <p draggable="true">Fourth element</p>
+    <p draggable="true">Fifth element</p>
+    <p draggable="true">Sixth element</p>
+    <p draggable="true">Seventh element</p>
+    <p draggable="true">Eigth element</p>
+    <p draggable="true">Ninth element</p>
+    <p draggable="true">Tenth element</p>
+    </div>
+    </div>
+    <div class="col-4 holder" id="hover-container-2" ondragstart="dragAndDrop(event)">
+        <div id="section-three-list-2">
+        </div>
+    </div>
+    </div>
+    <div class="col-4">
+        <p>In this example, we're going to be adding some more functionality with event listeners and node values.</p>
+    <p>Instead of clicking on the elements to add them to the other lists, each element will have a draggable and dropable feature.</p>
+    </div>
+    </div>
 </div>
 <script src="main.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
