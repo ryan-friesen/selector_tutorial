@@ -171,6 +171,7 @@ function dragenter(event) {
   event.preventDefault()
 }
 function drop() {
+  console.log(this);
   this.append(element)
 }
 }
