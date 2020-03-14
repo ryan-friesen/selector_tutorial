@@ -28,6 +28,10 @@ select.form-control {
   
 }
 
+.holder {
+  height: 100%;
+}
+
 #section-two-list-1,
 #section-two-list-2,
 #section-three-list-1,
